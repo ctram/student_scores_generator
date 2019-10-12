@@ -1,0 +1,18 @@
+<!doctype HTML>
+<html>
+<head>
+</head>
+<body>
+  <div id="scores">
+  </div>
+
+  <script>
+    const evtSource = new EventSource("http://localhost:3000/student_scores");
+
+    evtSource.onmessage = function(event) {
+      const scoresDiv = document.getElementById('scores');
+      scoresDiv.append(event.data);
+    };
+  </script>
+</body>
+</html>
